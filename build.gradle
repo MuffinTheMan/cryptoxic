@@ -32,3 +32,9 @@ mainClassName = 'App'
 
 description = 'Simple implementations of select methods of cryptographic schemes to facilitate understanding various principles of cryptography.'
 version = '0.1'
+
+run {
+    if (project.hasProperty("appArgs")) {
+        args Eval.me(appArgs)
+    }
+}

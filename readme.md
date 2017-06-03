@@ -4,6 +4,10 @@ Simple implementations of select methods of cryptographic schemes to facilitate 
 
 Forgive my code oddities. Java is not in my top 5 go-to languages, and I'm using it here to get more exposure to and practice with the language.
 
+## Application
+
+Run with `./gradlew run -PappArgs="['input.txt']"` (where "input.txt" is your input file)
+
 ## Symmetric Key Encryption
 
 The same key used to encrypt a message is also used to decrypt the message.
