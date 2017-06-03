@@ -5,17 +5,33 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AppTest {
-    // @Test public void testAppHasAGreeting() {
-    //     App classUnderTest = new App();
-    //     assertNotNull("app should have a greeting", classUnderTest.getGreeting());
-    // }
-
     @Test
-    public void testEncrypt() {
+    public void testEncrypt1() {
+        // Limitation: difficult to make work with special characters, so using a subset of common characters
         App classUnderTest = new App();
         int e = 1;
-        String m = "Hello World";
-        String c = "Ifmmp!Xpsme";
+        String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String c = "bcdefghijklmnopqrstuvwxyz{23456789:1!BCDEFGHIJKLMNOPQRSTUVWXYZ[";
         assertEquals(c,classUnderTest.encrypt(m,e));
+    }
+
+    @Test
+    public void testDecrypt1() {
+        // Limitation: difficult to make work with special characters, so using a subset of common characters
+        App classUnderTest = new App();
+        int e = 1;
+        String c = "bcdefghijklmnopqrstuvwxyz{23456789:1!BCDEFGHIJKLMNOPQRSTUVWXYZ[";
+        String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        assertEquals(m,classUnderTest.decrypt(c,e));
+    }
+    @Test
+    public void testRecovery1() {
+        App classUnderTest = new App();
+        int e = 1;
+        String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()`-=[]\\;',./~_+{}|:\"<>?";
+        String c = classUnderTest.encrypt(m,e);
+        assertNotEquals(m,c); // After encryption, the cipher text should not match the plain text
+        String d = classUnderTest.decrypt(c,e);
+        assertEquals(m,d); // The decrypted cipher text should match the original plain text
     }
 }
