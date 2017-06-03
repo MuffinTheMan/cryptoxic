@@ -3,18 +3,25 @@
     shifted 'e' (user supplied) characters to the right
 */
 
-import java.util.Scanner;
+import java.io.*;
 
 public class ShiftBlockCipher {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main (String[] args) throws IOException {
+        File f = new File(args[0]);
+        BufferedReader buffer = new BufferedReader(new FileReader(f));
+        String line;
 
-        System.out.print("What is your shift value? ");
-        int e = scanner.nextInt();
+        int e = 0;
+        String m = "";
 
-        System.out.print("Enter your plain text message: ");
-        String m = scanner.next();
+        while ((line = buffer.readLine()) != null) {
+            if (e == 0) {
+                e = Integer.parseInt(line);
+            } else {
+                m = line;
+            }
+        }
 
         String c = encrypt(m,e);
 
