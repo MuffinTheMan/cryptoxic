@@ -8,7 +8,7 @@ public class AppTest {
     @Test
     public void testEncrypt1() {
         // Limitation: difficult to make work with special characters, so using a subset of common characters
-        App classUnderTest = new App();
+        SimpleShiftBlockCipher classUnderTest = new SimpleShiftBlockCipher();
         int e = 1;
         String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String c = "bcdefghijklmnopqrstuvwxyz{23456789:1!BCDEFGHIJKLMNOPQRSTUVWXYZ[";
@@ -18,7 +18,7 @@ public class AppTest {
     @Test
     public void testDecrypt1() {
         // Limitation: difficult to make work with special characters, so using a subset of common characters
-        App classUnderTest = new App();
+        SimpleShiftBlockCipher classUnderTest = new SimpleShiftBlockCipher();
         int e = 1;
         String c = "bcdefghijklmnopqrstuvwxyz{23456789:1!BCDEFGHIJKLMNOPQRSTUVWXYZ[";
         String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -26,7 +26,7 @@ public class AppTest {
     }
     @Test
     public void testRecovery1() {
-        App classUnderTest = new App();
+        SimpleShiftBlockCipher classUnderTest = new SimpleShiftBlockCipher();
         int e = 1;
         String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()`-=[]\\;',./~_+{}|:\"<>?";
         String c = classUnderTest.encrypt(m,e);
