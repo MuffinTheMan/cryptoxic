@@ -1,4 +1,4 @@
-public class SimpleShiftBlockCipher {
+public class CaesarCipher {
 
     public static String encrypt(String m, int e) {
         char[] chars = m.toCharArray();

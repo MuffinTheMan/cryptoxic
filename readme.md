@@ -12,9 +12,9 @@ Run with `./gradlew run -PappArgs="['input.txt']"` (where "input.txt" is your in
 
 The same key used to encrypt a message is also used to decrypt the message.
 
-### Simple Block Cipher (Shift)
+### [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 
-Splits a plain text message into blocks of size '1' (only one character per block), and shifts each block by 'e' characters to the right (user supplied)
+Shifts each character in the plain text by 'e' characters to the right to give a resulting cipher text. Utterly unsecure. Easily suseptible to both brute force methods (key space is limited to the number of characters available) and character frequency analysis.
 
 ### Block Cipher (Shift)
 

@@ -4,7 +4,7 @@ import java.io.*;
  */
 public class App {
     public static void main (String[] args) throws IOException {
-        // ===== Begin SimpleShiftBlockCipher ===== //
+        // ===== Begin CaesarCipher ===== //
         File f = new File(args[0]);
         BufferedReader buffer = new BufferedReader(new FileReader(f));
         String line;
@@ -20,12 +20,12 @@ public class App {
             }
         }
 
-        SimpleShiftBlockCipher ssbc = new SimpleShiftBlockCipher();
+        CaesarCipher ssbc = new CaesarCipher();
 
         String c = ssbc.encrypt(m,e);
 
         System.out.println("Encrypted message: " + c);
         System.out.println("Plain text message: " + ssbc.decrypt(c,e));
-        // ===== End SimpleShiftBlockCipher ===== //
+        // ===== End CaesarCipher ===== //
     }
 }

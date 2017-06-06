@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 
 public class AppTest {
     @Test
-    public void testEncrypt1() {
+    public void testEncryptSimple1() {
         // Limitation: difficult to make work with special characters, so using a subset of common characters
-        SimpleShiftBlockCipher classUnderTest = new SimpleShiftBlockCipher();
+        CaesarCipher classUnderTest = new CaesarCipher();
         int e = 1;
         String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String c = "bcdefghijklmnopqrstuvwxyz{23456789:1!BCDEFGHIJKLMNOPQRSTUVWXYZ[";
@@ -16,22 +16,23 @@ public class AppTest {
     }
 
     @Test
-    public void testDecrypt1() {
+    public void testDecryptSimple1() {
         // Limitation: difficult to make work with special characters, so using a subset of common characters
-        SimpleShiftBlockCipher classUnderTest = new SimpleShiftBlockCipher();
+        CaesarCipher classUnderTest = new CaesarCipher();
         int e = 1;
         String c = "bcdefghijklmnopqrstuvwxyz{23456789:1!BCDEFGHIJKLMNOPQRSTUVWXYZ[";
         String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         assertEquals(m,classUnderTest.decrypt(c,e));
     }
     @Test
-    public void testRecovery1() {
-        SimpleShiftBlockCipher classUnderTest = new SimpleShiftBlockCipher();
-        int e = 1;
+    public void testRecovery() {
+        CaesarCipher classUnderTest = new CaesarCipher();
         String m = "abcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()`-=[]\\;',./~_+{}|:\"<>?";
-        String c = classUnderTest.encrypt(m,e);
-        assertNotEquals(m,c); // After encryption, the cipher text should not match the plain text
-        String d = classUnderTest.decrypt(c,e);
-        assertEquals(m,d); // The decrypted cipher text should match the original plain text
+        for (int e = 1; e < 30; e++) {
+            String c = classUnderTest.encrypt(m,e);
+            assertNotEquals(m,c); // After encryption, the cipher text should not match the plain text
+            String d = classUnderTest.decrypt(c,e);
+            assertEquals(m,d); // The decrypted cipher text should match the original plain text
+        }
     }
 }
