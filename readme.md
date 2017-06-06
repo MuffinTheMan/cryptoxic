@@ -1,8 +1,12 @@
+### Branch Management Note:
+
+Though at this point in time the term "stable" is virtually meaningless (after all, this project is to be a compilation of exercises), **master** would be the "stable" branch (again, not helpful terminoligy in the current context of this repo, since I simply decide to merge into master every so often when I feel like I've reached an okay spot in the project). The **develop** branch is the main branch I'm working on at any given time, so check that one out to see where I'm currently at in this project.
+
 # Cryptographic Exercises
 
-Simple implementations of select methods of cryptographic schemes to facilitate understanding various principles of cryptography.
+At this time, this project is for simple implementations of select methods of cryptographic schemes to facilitate understanding various principles of cryptography.
 
-Forgive my code oddities. Java is not in my top 5 go-to languages, and I'm using it here to get more exposure to and practice with the language.
+Forgive my code oddities. Java is not a language I've used much since a handful of college assignments, and I'm using it here to get more exposure to and practice with the language. Let me know if you find specific ways I'm using Java in a non-Java way that I should be aware of to correct.
 
 ## Application
 
