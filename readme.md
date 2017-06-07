@@ -22,7 +22,11 @@ Shifts each character in the plain text by 'e' characters to the right to give a
 
 #### To Do:
 
-Simplify to only make use of the 26 letters of the alphabet with wrapping (to capture the basic ancient usage of this cipher).
+Simplify code to only make use of the 26 letters of the alphabet with wrapping (to capture the basic ancient usage of this cipher).
+
+### [Affine Cipher](https://en.wikipedia.org/wiki/Affine_cipher)
+
+Similar to the Caesar Cipher, but with a twist. Shifts each character in the plain text by a factor computed by `(ax + b) % m` (where `x` is the numerical value of the plain text character, `m` is the size of the alphabet--26 if using simple English alphabet-- and `a` is [coprime](https://en.wikipedia.org/wiki/Coprime_integers) with `m`). Utterly unsecure. Easily suseptible to both brute force methods (though less so than the Caesar Cipher, since the key space is a bit larger) and character frequency analysis.
 
 ### Block Cipher (Shift)
 
