@@ -4,7 +4,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AppTest {
+public class CaesarCipherTest {
     @Test
     public void testEncryptSimple1() {
         // Limitation: difficult to make work with special characters, so using a subset of common characters
