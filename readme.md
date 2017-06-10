@@ -20,9 +20,7 @@ The same key used to encrypt a message is also used to decrypt the message.
 
 Shifts each character in the plain text by 'e' characters to the right to give a resulting cipher text. Utterly unsecure. Easily suseptible to both brute force methods (key space is limited to the number of characters available) and character frequency analysis.
 
-#### To Do:
-
-Simplify code to only make use of the 26 letters of the alphabet with wrapping (to capture the basic ancient usage of this cipher).
+I have dumbed down the implementation to only accept and shift letters from the alphabet `[a-zA-Z]` and to leave spaces alone. It's already not a practical cipher, so why bother making the implementation super practical?
 
 ### [Affine Cipher](https://en.wikipedia.org/wiki/Affine_cipher)
 

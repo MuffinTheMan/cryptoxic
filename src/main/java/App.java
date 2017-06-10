@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.*;
+import java.lang.*;
+
 /*
  * Main Application file.
  */
@@ -22,10 +25,13 @@ public class App {
 
         CaesarCipher ssbc = new CaesarCipher();
 
-        String c = ssbc.encrypt(m,e);
-
-        System.out.println("Encrypted message: " + c);
-        System.out.println("Plain text message: " + ssbc.decrypt(c,e));
+        try {
+            String c = ssbc.encrypt(m,e);
+            System.out.println("Encrypted message: " + c);
+            System.out.println("Plain text message: " + ssbc.decrypt(c,e));
+        } catch (InvalidInputException excep) {
+            System.out.println(excep);
+        }
         // ===== End CaesarCipher ===== //
     }
 }
