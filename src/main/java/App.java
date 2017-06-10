@@ -6,9 +6,18 @@ import java.lang.*;
  * Main Application file.
  */
 public class App {
-    public static void main (String[] args) throws IOException {
-        // ===== Begin CaesarCipher ===== //
-        File f = new File(args[0]);
+    public static void main(String[] args) throws IOException {
+        switch (args[0]) {
+            case "cs":
+                caesarCipher(args[1]);
+                break;
+            default:
+                System.out.println("Please provide a valid program option as your first argument from the following: 'cs' (Caesar Cipher)");
+        }
+    }
+
+    public static void caesarCipher(String fName) throws IOException {
+        File f = new File(fName);
         BufferedReader buffer = new BufferedReader(new FileReader(f));
         String line;
 
@@ -32,6 +41,5 @@ public class App {
         } catch (InvalidInputException excep) {
             System.out.println(excep);
         }
-        // ===== End CaesarCipher ===== //
     }
 }
